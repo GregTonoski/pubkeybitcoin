@@ -1,4 +1,4 @@
-pubkeybitcoin - calculate a secp256k1 public key from a private key. Seckp256k1 is used in Bitcoin and elsewhere.
+pubkeybitcoin - calculate a secp256k1 public key from a private key. Secp256k1 is used in Bitcoin and elsewhere.
 
 Examples:
 ```
