@@ -360,9 +360,9 @@ define addy (x1, x1x, y1, x2, y2) {
   return ( modulo((slopea(x1, x2, y1, y2) * (x1 - x1x) - y1 ), p) )
 }
 
-define show_leading_zeros (num) {
+define show_leading_zeros (num, max) {
   i = 10
-  while ( num * i < p ) {
+  while ( num * i < max ) {
    "0"
    i = i * i
    }
@@ -394,19 +394,19 @@ define multiply(k, genpx, genpy) {
 /*  "Uncompressed format of pubkey:
 "
   "04"
-  if ( obase == 16 ) (pubkeyx*2^256 + pubkeyy)
-  if ( obase != 16 ) {
-  pubkeyx; pubkeyy
+  if ( obase == 10 ) (show_leading_zeros(pubkeyx*2^100 + pubkeyy, p*2^100))
+  if ( obase != 10 ) {
+    pubkeyx; pubkeyy
   }
 */
   "secp256k1 pubkey:
 "
   if ( pubkeyy%2 ) {
     "03"
-    return ( show_leading_zeros(pubkeyx) )
+    return ( show_leading_zeros(pubkeyx, p) )
   }
   "02"
-  return ( show_leading_zeros(pubkeyx) )
+  return ( show_leading_zeros(pubkeyx, p) )
 }
 
 define input_validation(k) {
