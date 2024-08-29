@@ -10,7 +10,7 @@
 #    xargs -a privkeys_list.txt -p -o -L 1 sh pubkeybitcoin.sh
 #    while read row ; do sh pubkeybitcoin.sh ${row} < /dev/null ; done < privkeys_list.txt ; sh pubkeybitcoin.sh ${row}
 #    od -x -A n -w32 file.bin | sh pubkeybitcoin.sh
-#    hexdump -v -e '16/1 "%02x " "\n"' | sh pubkeybitcoin.sh
+#    hexdump -v -e '16/1 "%02x " "\n"' file.bin | sh pubkeybitcoin.sh
 
 export LC_ALL=C
 pubkeybitcoin_version="1.0.0"
