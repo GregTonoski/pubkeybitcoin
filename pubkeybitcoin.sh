@@ -361,10 +361,10 @@ define addy (x1, x1x, y1, x2, y2) {
 }
 
 define show_leading_zeros (num, max) {
-  i = 10
+  i = obase
   while ( num * i < max ) {
    "0"
-   i = i * 10
+   i = i * obase
    }
   return (num)
 }
