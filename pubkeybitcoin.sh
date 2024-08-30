@@ -364,7 +364,7 @@ define show_leading_zeros (num, max) {
   i = 10
   while ( num * i < max ) {
    "0"
-   i = i * i
+   i = i * 10
    }
   return (num)
 }
