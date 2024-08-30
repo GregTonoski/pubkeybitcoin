@@ -241,7 +241,7 @@ fn_decode_privkey_from_wif () {
 ### Beginning of the program execution ###
 
 if ! command -v bc >/dev/null ; then
-  echo "ERROR. There isn't the calculator program bc found in the system. This program can't continue without the bc which is widely available at no cost and its source is open." >&2 ; exit 3
+  echo "ERROR. There isn't the calculator program bc found in the system. This program can't continue without the bc which is widely available at no cost and its source is open, e.g. https://git.gavinhoward.com/gavin/bc/releases". >&2 ; exit 3
 fi
 
 if fn_validate_user_input "${*}" ; then
