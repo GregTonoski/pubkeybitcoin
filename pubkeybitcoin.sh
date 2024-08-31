@@ -241,7 +241,11 @@ fn_decode_privkey_from_wif () {
 ### Beginning of the program execution ###
 
 if ! command -v bc >/dev/null ; then
-  echo "ERROR. There isn't the calculator program bc found in the system. This program can't continue without the bc which is widely available at no cost and its source is open, e.g. https://git.gavinhoward.com/gavin/bc/releases". >&2 ; exit 3
+  if ! command -v bc-gh >/dev/null ; then
+    echo "ERROR. There isn't the calculator program bc found in the system. This program can't continue without the bc which is widely available at no cost and its source is open, e.g. https://git.gavinhoward.com/gavin/bc/releases". >&2 ; exit 3
+  else
+    bc_name="bc-gh"
+  fi
 fi
 
 if fn_validate_user_input "${*}" ; then
@@ -289,7 +293,7 @@ fi
 if [ "${priv_key##*[0123456789ABCDEF]*}" ] ; then
   echo "ERROR. Unexpectedly, the value of the priv_key variable contains non-hexadecimal or lower-case digit despite sanitization. Program execution interrupted." >&2 ; exit 4
 fi
-BC_LINE_LENGTH=0 bc <<-EOF
+BC_LINE_LENGTH=0 ${bc_name:-bc} <<-EOF
 
 ibase=16
 obase=10 /* here the value 10 is not decimal but hexadecimal 0x10 */
