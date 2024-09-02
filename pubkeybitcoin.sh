@@ -157,7 +157,7 @@ fn_sylui_to_hex () {
     character="${sylui_string%%${sylui_string#?}}"
     case "${character}" in
       ["${vowels}"] ) eval 'coefficient=$(( ( '${augend}' + ${VOWEL_'"${character}"'} ) ))' ; coefficients_string="${coefficients_string}"" ${coefficient}" ; augend=0 ;; # e.g. coefficient=$(( "${augend}" + "${VOWEL_A}" ))
-      ["${consonants}"]) eval 'augend=$(( ( ${CONSONANT_'"${character}"'} - '"${#vowels}"' + 1 ) * '"${#vowels}"' ))' ;; # e.g. augend=$(( ( "${CONSONANT_B} - "${vowels_count}" ) * "${vowels_count}"
+      ["${consonants}"]) eval 'augend=$(( ( ${CONSONANT_'"${character}"'} - '"${#vowels}"' + 1 ) * '"${#vowels}"' ))' ;; # e.g. augend=$(( ( "${CONSONANT_B} - ${#vowels} ) * ${#vowels} ))
       *) ;;
     esac
     sylui_string="${sylui_string#?}"
