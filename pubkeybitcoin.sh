@@ -68,7 +68,8 @@ fn_validate_user_input () {
     * ) echo "ERROR. Invalid format of user input. An option may have not been entered. Use -help option for more information." >&2 ; exit 1 ;;
   esac
   if [ "${opt_from:-hex}" = "hex" ] ; then
-    priv_key="${priv_key#0x}"
+    priv_key="${priv_key#${priv_key%%[![:space:]]*}}"
+    priv_key="${priv_key#0[xX]}"
     case "${priv_key}" in
       *[![:xdigit:][:space:]]* ) echo "ERROR. There was a non-hexadecimal digit character entered." >&2 ; exit 1;;
       * ) ;;
