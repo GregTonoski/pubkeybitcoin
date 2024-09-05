@@ -150,14 +150,14 @@ fn_sylui_to_hex () {
   done
 
   sylui_string="${*}"
-  augend=0
+  augend=""
   coefficient=0
   character=""
   coefficients_string=""
   while [ "${sylui_string}" ] ; do
     character="${sylui_string%%${sylui_string#?}}"
     case "${character}" in
-      ["${vowels}"] ) eval 'coefficient=$(( ( '${augend}' + ${VOWEL_'"${character}"'} ) ))' ; coefficients_string="${coefficients_string}"" ${coefficient}" ; augend=0 ;; # e.g. coefficient=$(( "${augend}" + "${VOWEL_A}" ))
+      ["${vowels}"] ) eval 'coefficient=$(( ( '${augend}' + ${VOWEL_'"${character}"'} ) ))' ; coefficients_string="${coefficients_string}"" ${coefficient}" ; augend="" ;; # e.g. coefficient=$(( "${augend}" + "${VOWEL_A}" ))
       ["${consonants}"]) if [ ! "${augend}" ] ; then
           eval 'augend=$(( ( ${CONSONANT_'"${character}"'} - '"${#vowels}"' + 1 ) * '"${#vowels}"' ))' # e.g. augend=$(( ( "${CONSONANT_B} - ${#vowels} ) * ${#vowels} ))
         else
