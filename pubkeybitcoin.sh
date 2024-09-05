@@ -159,7 +159,7 @@ fn_sylui_to_hex () {
     case "${character}" in
       ["${vowels}"] ) eval 'coefficient=$(( ( '${augend}' + ${VOWEL_'"${character}"'} ) ))' ; coefficients_string="${coefficients_string}"" ${coefficient}" ; augend=0 ;; # e.g. coefficient=$(( "${augend}" + "${VOWEL_A}" ))
       ["${consonants}"]) if [ ! "${augend}" ] ; then
-          eval 'augend=$(( ( ${CONSONANT_'"${character}"'} - '"${#vowels}"' + 1 ) * '"${#vowels}"' ))' ;; # e.g. augend=$(( ( "${CONSONANT_B} - ${#vowels} ) * ${#vowels} ))
+          eval 'augend=$(( ( ${CONSONANT_'"${character}"'} - '"${#vowels}"' + 1 ) * '"${#vowels}"' ))' # e.g. augend=$(( ( "${CONSONANT_B} - ${#vowels} ) * ${#vowels} ))
         else
           echo "ERROR. There was incorrect SylUI code entered." >&2 ; return 1
         fi
