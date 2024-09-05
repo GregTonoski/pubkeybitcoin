@@ -274,7 +274,7 @@ if ! [ "${priv_key##*[[:lower:]]*}" ] ; then
 fi
 if [ "${opt_from}" = "sylui" ] ; then
   priv_key=$( fn_sylui_to_hex "${priv_key}" )
-  if [ $? ] ; then exit 1; fi
+  if [ ! $? ] ; then exit 1; fi
 fi
 priv_key="${priv_key#${priv_key%%[!0]*}}" # remove leading zeros
 if ! [ "${priv_key}" ] ; then
