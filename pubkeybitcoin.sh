@@ -168,6 +168,7 @@ fn_sylui_to_hex () {
     esac
     sylui_string="${sylui_string#?}"
   done
+  if [ "${augend}" ] ; then echo "ERROR. There was incorrect SylUI code entered." >&2 ; return 1 ; fi
   
   base=$(( ${#vowels} * ${#consonants} + ${#vowels} ))
   exponent=0
@@ -274,7 +275,7 @@ if ! [ "${priv_key##*[[:lower:]]*}" ] ; then
 fi
 if [ "${opt_from}" = "sylui" ] ; then
   priv_key=$( fn_sylui_to_hex "${priv_key}" )
-  if [ ! $? ] ; then exit 1; fi
+  if [ "${?}" -ne 0 ] ; then exit 1; fi
 fi
 priv_key="${priv_key#${priv_key%%[!0]*}}" # remove leading zeros
 if ! [ "${priv_key}" ] ; then
