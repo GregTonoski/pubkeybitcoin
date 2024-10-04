@@ -10,4 +10,5 @@ sh pubkeybitcoin.sh -f wif L5oLkpV3aqBjhki6LmvChTCV6odsp4SXM6FfU2Gppt5kFLaHLuZ9
 Output: `0379BE667EF9DCBBAC55A06295CE870B07029BFCDB2DCE28D959F2815B16F81798`.
 
 #### Screenshot
-![image](https://github.com/user-attachments/assets/8be3ee7a-9952-490c-9019-07ffe087bf53)
+![image](https://github.com/user-attachments/assets/3fbfa4f0-98ed-4922-a58f-81685288ecf9)
+
