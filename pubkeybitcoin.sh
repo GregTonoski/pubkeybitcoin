@@ -28,7 +28,7 @@ fn_show_helptext () {
   printf "  -v, --version                 display version information and exit\n"
   printf "\n"
   printf "Pubkeybitcoin uses bc calculator and stops execution with an error message if bc is not installed on the system.\n"
-  printf "Public key is displayed in hexadecimal representation of octet string and y-coordinate compressed form as specified in the SEC 1 standard.\n"
+  printf "Public key is displayed in hexadecimal representation of octet string and y-coordinate compressed form as specified in the SEC 1 standard by SECG.\n"
   printf "\n"
   printf "Examples:\n"
   printf "  sh pubkeybitcoin.sh --from=sylui FUFEXU DAZOWI WARICI TEVYWO RUDITA CYSALU LEHAXA CONURA SAFYA JYZATO XORUZI MEQOLE XA\n"
